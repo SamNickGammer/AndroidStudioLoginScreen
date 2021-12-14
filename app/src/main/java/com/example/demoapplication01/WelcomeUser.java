@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class WelcomeUser extends AppCompatActivity {
 
     TextView welcomeUser;
-    Button signOutBtn;
+    Button signOutBtn,basicCalculator,advanceCalculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class WelcomeUser extends AppCompatActivity {
         //Calling Value From XML
         welcomeUser = findViewById(R.id.welcomeUser);
         signOutBtn = findViewById(R.id.signOutBtn);
+        basicCalculator = findViewById(R.id.basicCalculator);
+        advanceCalculator = findViewById(R.id.advanceCalculator);
 
         //Getting Intend From Login and SignIn For nameData
         Intent i = getIntent();
@@ -34,6 +36,18 @@ public class WelcomeUser extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),LoginScreen.class));
                 finish();
+            }
+        });
+        basicCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),BasicCalculator.class));
+            }
+        });
+        advanceCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 

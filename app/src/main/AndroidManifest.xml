@@ -13,6 +13,8 @@
         <activity android:name=".WelcomeAdmin" />
         <activity android:name=".AdminLogin" />
         <activity android:name=".WelcomeUser" />
+        <activity android:name=".BasicCalculator" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SignIn"
             android:clearTaskOnLaunch="true"
