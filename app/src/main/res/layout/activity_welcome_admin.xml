@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeUser">
+    tools:context=".WelcomeUser"
+    android:id="@+id/constrainLayout">
 
     <TextView
         android:id="@+id/welcomeUser"
@@ -41,4 +42,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeUser"
         app:layout_constraintVertical_bias="0.058" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="403dp"
+        app:layout_constraintBottom_toTopOf="@+id/signOutBtn"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="613dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Button
+                android:id="@+id/basicCalculator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Basic Calculator" />
+
+            <Button
+                android:id="@+id/advanceCalculator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Advance Calculator" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234"
+        tools:layout_editor_absoluteX="3dp">
+
+        <Button
+            android:id="@+id/createNewUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="53dp"
+            android:text="Create User" />
+
+        <Button
+            android:id="@+id/createNewAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Create Admin"
+            android:backgroundTint="@color/brave"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/newCreationLayout"
+        android:layout_width="346dp"
+        android:layout_height="537dp"
+        android:background="@drawable/bg_newuser_admin"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
