@@ -17,7 +17,6 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".SignIn"
-            android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_sign_in"
             android:theme="@style/Theme.DemoApplication01.NoActionBar" />
         <activity android:name=".LoginScreen">

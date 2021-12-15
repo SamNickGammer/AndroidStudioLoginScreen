@@ -3,6 +3,7 @@ package com.example.demoapplication01;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,8 @@ public class WelcomeAdmin extends AppCompatActivity {
         String nameData = i.getExtras().getString("nameValue","");
         welcomeUser.setText("Welcome "+nameData);
 
+        Fragment fragment = new CreateNewAdmin();
+
 //        getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout, new CreateNewAdmin()).commit();
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +59,7 @@ public class WelcomeAdmin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                newCreationLayout.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.bg_newuser_admin));
-                getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout,new CreateNewAdmin()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout,fragment).commit();
                 newCreationLayout.setVisibility(View.VISIBLE);
                 newCreationLayout.bringToFront();
             }
@@ -69,10 +72,12 @@ public class WelcomeAdmin extends AppCompatActivity {
             }
         });
 
-        constrainLayout.setOnClickListener(new View.OnClickListener() {
+        constrainLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().remove(getSupportFragmentManager().findFragmentById(R.id.newCreationLayout));
+            public boolean onTouch(View v, MotionEvent event) {
+                getSupportFragmentManager().beginTransaction().remove(fragment);
+                Log.d("Clicked","0");
+                return false;
             }
         });
     }
