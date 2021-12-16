@@ -42,7 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeUser"
         app:layout_constraintVertical_bias="0.058" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="413dp"
@@ -78,6 +77,7 @@
         </LinearLayout>
     </ScrollView>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,14 +105,16 @@
 
     <FrameLayout
         android:id="@+id/newCreationLayout"
-        android:layout_width="346dp"
-        android:layout_height="537dp"
+        android:layout_width="318dp"
+        android:layout_height="392dp"
         android:background="@drawable/bg_newuser_admin"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439"
+        android:elevation="5dp"></FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

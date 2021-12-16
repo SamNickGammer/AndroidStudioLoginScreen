@@ -33,19 +33,20 @@ public class WelcomeAdmin extends AppCompatActivity {
         welcomeUser = findViewById(R.id.welcomeUser);
         signOutBtn = findViewById(R.id.signOutBtn);
         createNewUser = findViewById(R.id.createNewUser);
-//        createNewAdmin = findViewById(R.id.createNewAdmin);
+        createNewAdmin= findViewById(R.id.createNewAdmin);
         newCreationLayout = findViewById(R.id.newCreationLayout);
         constrainLayout = findViewById(R.id.constrainLayout);
         basicCalculator = findViewById(R.id.basicCalculator);
+
 
         //Getting Intend From Login and SignIn For nameData
         Intent i = getIntent();
         String nameData = i.getExtras().getString("nameValue","");
         welcomeUser.setText("Welcome "+nameData);
 
-        Fragment fragment = new CreateNewAdmin();
+        Fragment createAdminFrag = new CreateNewAdmin();
+        Fragment createUserFrag = new CreateNewUser();
 
-//        getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout, new CreateNewAdmin()).commit();
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +60,27 @@ public class WelcomeAdmin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                newCreationLayout.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.bg_newuser_admin));
-                getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout,fragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout,createUserFrag).commit();
                 newCreationLayout.setVisibility(View.VISIBLE);
                 newCreationLayout.bringToFront();
+                createNewUser.setEnabled(false);
+                basicCalculator.setEnabled(false);
+                createNewAdmin.setEnabled(false);
             }
         });
+
+        createNewAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().add(R.id.newCreationLayout,createAdminFrag).commit();
+                newCreationLayout.setVisibility(View.VISIBLE);
+                newCreationLayout.bringToFront();
+                createNewUser.setEnabled(false);
+                basicCalculator.setEnabled(false);
+                createNewAdmin.setEnabled(false);
+            }
+        });
+
 
         basicCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,13 +89,21 @@ public class WelcomeAdmin extends AppCompatActivity {
             }
         });
 
+
+
+
         constrainLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                getSupportFragmentManager().beginTransaction().remove(fragment);
-                Log.d("Clicked","0");
+                getSupportFragmentManager().beginTransaction().remove(createAdminFrag).commit();
+                getSupportFragmentManager().beginTransaction().remove(createUserFrag).commit();
+                newCreationLayout.setVisibility(View.INVISIBLE);
+                basicCalculator.setEnabled(true);
+                createNewUser.setEnabled(true);
+                createNewAdmin.setEnabled(true);
                 return false;
             }
         });
+
     }
 }
